@@ -1,0 +1,10 @@
+^C:\USERS\HOME\ONEDRIVE\RADNA POVRŠINA\NAPREDNI AISP\PROJEKT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt" "-BC:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build" --check-stamp-file "C:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

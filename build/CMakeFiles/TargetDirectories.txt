@@ -1,0 +1,4 @@
+C:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build/CMakeFiles/linear_framework.dir
+C:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build/CMakeFiles/test_program.dir
+C:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build/CMakeFiles/ZERO_CHECK.dir
