@@ -15,29 +15,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+extern const QueueVtable queue_array_vtable;
+
+extern void* queue_array_create(size_t capacity);
+
 /**
  * @brief Kreira novi red čekanja sa zadanom implementacijom
  * 
  * Alocira strukturu Queue i delegira kreiranje stvarne implementacije
  * odgovarajućoj funkciji (npr. queue_array_create ili queue_list_create).
- * 
- * TODO: Ova funkcija se mora proširiti sa switch-om:
- * 
- * switch (impl) {
- *     case QUEUE_IMPL_ARRAY:
- *         // Pozvati queue_array_create() koja vraća impl pointer
- *         // i popuniti vt sa odgovarajućim vtable
- *         // capacity se koristi za veličinu array-a
- *         break;
- *     case QUEUE_IMPL_LINKED_LIST:
- *         // Pozvati queue_list_create() koja vraća impl pointer
- *         // i popuniti vt sa odgovarajućim vtable
- *         // capacity se ignora za linked list
- *         break;
- *     default:
- *         free(queue);
- *         return NULL;
- * }
  */
 Queue* queue_create(QueueImplType impl, cmp_fn cmp, print_fn print,
                     free_fn destructor, size_t capacity)
@@ -54,11 +40,20 @@ Queue* queue_create(QueueImplType impl, cmp_fn cmp, print_fn print,
     queue->impl = NULL;
     queue->vt = NULL;
 
-    /* TODO: Implementiraj switch po impl kako je opisano gore */
-    /* Za sada, vratimo gresku */
-    fprintf(stderr, "queue_create: TODO - Implementiraj kreiranje za tip %d\n", impl);
-    free(queue);
-    return NULL;
+    if (impl != QUEUE_IMPL_ARRAY) {
+        fprintf(stderr, "queue_create: Nepoznat tip implementacije: %d\n", impl);
+        free(queue);
+        return NULL;
+    }
+
+    queue->impl = queue_array_create(capacity);
+    if (!queue->impl) {
+        free(queue);
+        return NULL;
+    }
+    queue->vt = &queue_array_vtable;
+
+    return queue;
 }
 
 /**

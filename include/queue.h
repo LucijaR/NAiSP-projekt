@@ -23,8 +23,7 @@
  * željeni tip memorijske organizacije.
  */
 typedef enum {
-    QUEUE_IMPL_ARRAY,          /**< Array-based implementacija (fiksna kapaciteta, može biti circular) */
-    QUEUE_IMPL_LINKED_LIST     /**< Linked-list-based implementacija (dinamički) */
+    QUEUE_IMPL_ARRAY           /**< Array-based implementacija (kružna, dinamički proširiva) */
 } QueueImplType;
 
 /**
@@ -42,11 +41,11 @@ typedef struct Queue Queue;
  * Alocira i inicijalizira novi red čekanja sa odabranom implementacijom.
  * Sve operacije na redu čekanja će se delegirati na vtable odabranog tipa.
  * 
- * @param impl Tip implementacije (QUEUE_IMPL_ARRAY ili QUEUE_IMPL_LINKED_LIST)
+ * @param impl Tip implementacije (QUEUE_IMPL_ARRAY)
  * @param cmp  Funkcija za poređenje elemenata (može biti NULL ako se ne koristi)
  * @param print Funkcija za ispis elemenata (može biti NULL)
  * @param destructor Funkcija za oslobađanje memorije elementa (može biti NULL)
- * @param capacity Kapaciteta (ignorirana za QUEUE_IMPL_LINKED_LIST)
+ * @param capacity Kapaciteta kružnog polja
  * 
  * @return Pokazivač na novo kranirani red čekanja, ili NULL ako je došlo do greške
  * 
