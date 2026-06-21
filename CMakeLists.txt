@@ -23,4 +23,6 @@ add_executable(custom_type_test_program tests/custom_type_test.c)
 target_link_libraries(custom_type_test_program linear_framework)
 
 enable_testing()
+add_test(NAME int_test COMMAND int_test_program)
+add_test(NAME string_test COMMAND string_test_program)
 add_test(NAME custom_type_test COMMAND custom_type_test_program)

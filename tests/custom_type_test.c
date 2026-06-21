@@ -94,12 +94,12 @@ static void report_size(const char* label, size_t actual, size_t expected)
     }
 }
 
-/* Primjer definisanja i korištenja vlastitog tipa na stogu. */
-static int run_stack_suite(void)
+/* Task: zamjena implementacije stoga bez promjene logike. */
+static int run_stack_suite(StackImplType impl, const char* name)
 {
-    printf("\n=== CUSTOM TYPE / STACK ===\n");
+    printf("\n=== CUSTOM TYPE / STACK: %s ===\n", name);
 
-    Stack* stack = stack_create(STACK_IMPL_ARRAY, student_cmp, student_print, generic_free, 2);
+    Stack* stack = stack_create(impl, student_cmp, student_print, generic_free, 2);
     if (!stack) {
         printf("[FAIL] stack_create failed\n");
         return 1;
@@ -221,7 +221,8 @@ int main(void)
 {
     printf("Pokrećem primjer vlastitog tipa podataka...\n");
 
-    test_failures += run_stack_suite();
+    test_failures += run_stack_suite(STACK_IMPL_ARRAY, "array");
+    test_failures += run_stack_suite(STACK_IMPL_LINKED_LIST, "linked list");
     test_failures += run_queue_suite();
     test_failures += run_list_suite();
 
