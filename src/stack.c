@@ -15,6 +15,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+extern const StackVtable stack_array_vtable;
+extern const StackVtable stack_list_vtable;
+
+extern void* stack_array_create(size_t capacity);
+extern void* stack_list_create(void);
+
 /**
  * @brief Kreira novi stog sa zadanom implementacijom
  * 
@@ -52,11 +58,32 @@ Stack* stack_create(StackImplType impl, cmp_fn cmp, print_fn print,
     stack->impl = NULL;
     stack->vt = NULL;
 
-    /* TODO: Implementiraj switch po impl kako je opisano gore */
-    /* Za sada, vratimo gresku */
-    fprintf(stderr, "stack_create: TODO - Implementiraj kreiranje za tip %d\n", impl);
-    free(stack);
-    return NULL;
+    switch (impl) {
+        case STACK_IMPL_ARRAY:
+            stack->impl = stack_array_create(capacity);
+            if (!stack->impl) {
+                free(stack);
+                return NULL;
+            }
+            stack->vt = &stack_array_vtable;
+            break;
+
+        case STACK_IMPL_LINKED_LIST:
+            stack->impl = stack_list_create();
+            if (!stack->impl) {
+                free(stack);
+                return NULL;
+            }
+            stack->vt = &stack_list_vtable;
+            break;
+
+        default:
+            fprintf(stderr, "stack_create: Nepoznat tip implementacije: %d\n", impl);
+            free(stack);
+            return NULL;
+    }
+
+    return stack;
 }
 
 /**
