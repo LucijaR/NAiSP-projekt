@@ -12,3 +12,6 @@ add_library(linear_framework ${FRAMEWORK_SOURCES})
 
 add_executable(test_program tests/main_test.c)
 target_link_libraries(test_program linear_framework)
+
+add_executable(int_test_program tests/int_test.c)
+target_link_libraries(int_test_program linear_framework)
