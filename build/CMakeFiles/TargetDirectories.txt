@@ -1,4 +1,0 @@
-C:/Users/ivana/OneDrive/Dokumenti/GitHub/NAiSP-projekt/build/CMakeFiles/linear_framework.dir
-C:/Users/ivana/OneDrive/Dokumenti/GitHub/NAiSP-projekt/build/CMakeFiles/test_program.dir
-C:/Users/ivana/OneDrive/Dokumenti/GitHub/NAiSP-projekt/build/CMakeFiles/edit_cache.dir
-C:/Users/ivana/OneDrive/Dokumenti/GitHub/NAiSP-projekt/build/CMakeFiles/rebuild_cache.dir
