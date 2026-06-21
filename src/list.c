@@ -15,27 +15,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* Extern deklaracije za vtable-e iz konkretnih implementacija */
+extern const ListVtable list_singly_vtable;
+/* extern const ListVtable list_doubly_vtable;  -- TODO: kada se implementira */
+
+/* Extern deklaracije za create funkcije iz konkretnih implementacija */
+extern void* list_singly_create(void);
+/* extern void* list_doubly_create(void);  -- TODO: kada se implementira */
+
 /**
  * @brief Kreira novu listu sa zadanom implementacijom
  * 
  * Alocira strukturu List i delegira kreiranje stvarne implementacije
  * odgovarajućoj funkciji (npr. list_singly_create ili list_doubly_create).
- * 
- * TODO: Ova funkcija se mora proširiti sa switch-om:
- * 
- * switch (impl) {
- *     case LIST_IMPL_SINGLY:
- *         // Pozvati list_singly_create() koja vraća impl pointer
- *         // i popuniti vt sa odgovarajućim vtable
- *         break;
- *     case LIST_IMPL_DOUBLY:
- *         // Pozvati list_doubly_create() koja vraća impl pointer
- *         // i popuniti vt sa odgovarajućim vtable
- *         break;
- *     default:
- *         free(list);
- *         return NULL;
- * }
  */
 List* list_create(ListImplType impl, cmp_fn cmp, print_fn print,
                   free_fn destructor)
@@ -52,11 +44,30 @@ List* list_create(ListImplType impl, cmp_fn cmp, print_fn print,
     list->impl = NULL;
     list->vt = NULL;
 
-    /* TODO: Implementiraj switch po impl kako je opisano gore */
-    /* Za sada, vratimo gresku */
-    fprintf(stderr, "list_create: TODO - Implementiraj kreiranje za tip %d\n", impl);
-    free(list);
-    return NULL;
+    /* Inicijalizuj odgovarajuću implementaciju */
+    switch (impl) {
+        case LIST_IMPL_SINGLY:
+            list->impl = list_singly_create();
+            if (!list->impl) {
+                free(list);
+                return NULL;
+            }
+            list->vt = &list_singly_vtable;
+            break;
+
+        case LIST_IMPL_DOUBLY:
+            /* TODO: Implementiraj doubly-linked listu */
+            fprintf(stderr, "list_create: Doubly-linked list nije još implementirana\n");
+            free(list);
+            return NULL;
+
+        default:
+            fprintf(stderr, "list_create: Nepoznat tip implementacije: %d\n", impl);
+            free(list);
+            return NULL;
+    }
+
+    return list;
 }
 
 /**
