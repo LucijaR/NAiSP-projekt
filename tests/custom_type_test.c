@@ -135,12 +135,12 @@ static int run_stack_suite(StackImplType impl, const char* name)
     return 0;
 }
 
-/* Primjer definisanja i korištenja vlastitog tipa u redu čekanja. */
-static int run_queue_suite(void)
+/* Task: zamjena implementacije reda bez promjene logike. */
+static int run_queue_suite(QueueImplType impl, const char* name)
 {
-    printf("\n=== CUSTOM TYPE / QUEUE ===\n");
+    printf("\n=== CUSTOM TYPE / QUEUE: %s ===\n", name);
 
-    Queue* queue = queue_create(QUEUE_IMPL_LIST, student_cmp, student_print, generic_free, 2);
+    Queue* queue = queue_create(impl, student_cmp, student_print, generic_free, 2);
     if (!queue) {
         printf("[FAIL] queue_create failed\n");
         return 1;
@@ -223,7 +223,8 @@ int main(void)
 
     test_failures += run_stack_suite(STACK_IMPL_ARRAY, "array");
     test_failures += run_stack_suite(STACK_IMPL_LINKED_LIST, "linked list");
-    test_failures += run_queue_suite();
+    test_failures += run_queue_suite(QUEUE_IMPL_ARRAY, "array");
+    test_failures += run_queue_suite(QUEUE_IMPL_LIST, "linked list");
     test_failures += run_list_suite();
 
     if (test_failures == 0) {
