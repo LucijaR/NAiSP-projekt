@@ -17,11 +17,11 @@
 
 /* Extern deklaracije za vtable-e iz konkretnih implementacija */
 extern const ListVtable list_singly_vtable;
-/* extern const ListVtable list_doubly_vtable;  -- TODO: kada se implementira */
+extern const ListVtable list_doubly_vtable;
 
 /* Extern deklaracije za create funkcije iz konkretnih implementacija */
 extern void* list_singly_create(void);
-/* extern void* list_doubly_create(void);  -- TODO: kada se implementira */
+extern void* list_doubly_create(void);
 
 /**
  * @brief Kreira novu listu sa zadanom implementacijom
@@ -56,10 +56,13 @@ List* list_create(ListImplType impl, cmp_fn cmp, print_fn print,
             break;
 
         case LIST_IMPL_DOUBLY:
-            /* TODO: Implementiraj doubly-linked listu */
-            fprintf(stderr, "list_create: Doubly-linked list nije još implementirana\n");
-            free(list);
-            return NULL;
+            list->impl = list_doubly_create();
+            if (!list->impl) {
+                free(list);
+                return NULL;
+            }
+            list->vt = &list_doubly_vtable;
+            break;
 
         default:
             fprintf(stderr, "list_create: Nepoznat tip implementacije: %d\n", impl);
