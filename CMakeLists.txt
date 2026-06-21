@@ -18,3 +18,6 @@ target_link_libraries(int_test_program linear_framework)
 
 add_executable(string_test_program tests/string_test.c)
 target_link_libraries(string_test_program linear_framework)
+
+add_executable(custom_type_test_program tests/custom_type_test.c)
+target_link_libraries(custom_type_test_program linear_framework)
