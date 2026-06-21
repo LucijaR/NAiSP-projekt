@@ -19,6 +19,9 @@ extern const QueueVtable queue_array_vtable;
 
 extern void* queue_array_create(size_t capacity);
 
+extern const QueueVtable queue_list_vtable;
+extern void* queue_list_create(void);
+
 /**
  * @brief Kreira novi red čekanja sa zadanom implementacijom
  * 
@@ -40,19 +43,30 @@ Queue* queue_create(QueueImplType impl, cmp_fn cmp, print_fn print,
     queue->impl = NULL;
     queue->vt = NULL;
 
-    if (impl != QUEUE_IMPL_ARRAY) {
-        fprintf(stderr, "queue_create: Nepoznat tip implementacije: %d\n", impl);
-        free(queue);
-        return NULL;
-    }
+        switch (impl) {
+        case QUEUE_IMPL_ARRAY:
+            queue->impl = queue_array_create(capacity);
+            if (!queue->impl) {
+                free(queue);
+                return NULL;
+            }
+            queue->vt = &queue_array_vtable;
+            break;
 
-    queue->impl = queue_array_create(capacity);
-    if (!queue->impl) {
-        free(queue);
-        return NULL;
-    }
-    queue->vt = &queue_array_vtable;
+        case QUEUE_IMPL_LIST:
+            queue->impl = queue_list_create();
+            if (!queue->impl) {
+                free(queue);
+                return NULL;
+            }
+            queue->vt = &queue_list_vtable;
+            break;
 
+        default:
+            fprintf(stderr, "queue_create: Nepoznat tip implementacije: %d\n", impl);
+            free(queue);
+            return NULL;
+    }
     return queue;
 }
 

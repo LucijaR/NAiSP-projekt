@@ -23,7 +23,8 @@
  * željeni tip memorijske organizacije.
  */
 typedef enum {
-    QUEUE_IMPL_ARRAY           /**< Array-based implementacija (kružna, dinamički proširiva) */
+    QUEUE_IMPL_ARRAY,          /**< Array-based implementacija (kružna, dinamički proširiva) */
+    QUEUE_IMPL_LIST            /**< List-based implementacija (povezana lista) */   
 } QueueImplType;
 
 /**
