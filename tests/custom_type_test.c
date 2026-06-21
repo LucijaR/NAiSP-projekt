@@ -1,11 +1,11 @@
-#/****
+/*
 Run (PowerShell):
 
 cmake -S . -B build
 cmake --build build --target custom_type_test_program
 .\build\custom_type_test_program.exe
 
-****/
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
