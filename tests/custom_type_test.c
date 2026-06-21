@@ -105,6 +105,14 @@ static int run_stack_suite(StackImplType impl, const char* name)
         return 1;
     }
 
+    /* Task: testiranje rada na praznim strukturama i rubnih slučajeva. */
+    void* out = NULL;
+    report_status("stack initially empty", stack_is_empty(stack) ? STATUS_OK : STATUS_EMPTY, STATUS_OK);
+    report_size("stack initial size", stack_size(stack), 0);
+    report_status("stack print empty", stack_print(stack), STATUS_OK);
+    report_status("stack pop on empty", stack_pop(stack, &out), STATUS_EMPTY);
+    report_status("stack peek on empty", stack_peek(stack, &out), STATUS_EMPTY);
+
     Student* first = make_student(1001, "Ana", 9.75f);
     Student* second = make_student(1002, "Marko", 8.50f);
     Student* third = make_student(1003, "Iva", 9.10f);
@@ -123,7 +131,6 @@ static int run_stack_suite(StackImplType impl, const char* name)
     report_size("stack size", stack_size(stack), 3);
     report_status("stack print", stack_print(stack), STATUS_OK);
 
-    void* out = NULL;
     report_status("stack_peek", stack_peek(stack, &out), STATUS_OK);
     report_student("stack_peek value", out, 1003, "Iva", 9.10f);
 
@@ -146,6 +153,14 @@ static int run_queue_suite(QueueImplType impl, const char* name)
         return 1;
     }
 
+    /* Task: testiranje rada na praznim strukturama i rubnih slučajeva. */
+    void* out = NULL;
+    report_status("queue initially empty", queue_is_empty(queue) ? STATUS_OK : STATUS_EMPTY, STATUS_OK);
+    report_size("queue initial size", queue_size(queue), 0);
+    report_status("queue print empty", queue_print(queue), STATUS_OK);
+    report_status("queue dequeue on empty", queue_dequeue(queue, &out), STATUS_EMPTY);
+    report_status("queue front on empty", queue_front(queue, &out), STATUS_EMPTY);
+
     Student* first = make_student(2001, "Lea", 8.90f);
     Student* second = make_student(2002, "Petar", 7.80f);
     Student* third = make_student(2003, "Sara", 9.40f);
@@ -164,7 +179,6 @@ static int run_queue_suite(QueueImplType impl, const char* name)
     report_size("queue size", queue_size(queue), 3);
     report_status("queue print", queue_print(queue), STATUS_OK);
 
-    void* out = NULL;
     report_status("queue_front", queue_front(queue, &out), STATUS_OK);
     report_student("queue_front value", out, 2001, "Lea", 8.90f);
 
@@ -187,6 +201,15 @@ static int run_list_suite(void)
         return 1;
     }
 
+    /* Task: testiranje rada na praznim strukturama i rubnih slučajeva. */
+    void* out = NULL;
+    report_status("list initially empty", list_is_empty(list) ? STATUS_OK : STATUS_EMPTY, STATUS_OK);
+    report_size("list initial size", list_size(list), 0);
+    report_status("list print empty", list_print(list), STATUS_OK);
+    report_status("list remove_front on empty", list_remove_front(list, &out), STATUS_EMPTY);
+    report_status("list remove_back on empty", list_remove_back(list, &out), STATUS_EMPTY);
+    report_status("list_get on empty", list_get(list, 0, &out), STATUS_ALLOC_ERROR);
+
     Student* first = make_student(3001, "Nina", 9.00f);
     Student* second = make_student(3002, "Dino", 8.20f);
     Student* third = make_student(3003, "Ema", 9.60f);
@@ -205,7 +228,6 @@ static int run_list_suite(void)
     report_size("list size", list_size(list), 3);
     report_status("list print", list_print(list), STATUS_OK);
 
-    void* out = NULL;
     report_status("list_get 0", list_get(list, 0, &out), STATUS_OK);
     report_student("list_get 0 value", out, 3003, "Ema", 9.60f);
 
