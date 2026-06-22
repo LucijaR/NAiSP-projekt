@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/int_test_program.dir/tests/int_test.c.o -o int_test_program  liblinear_framework.a 

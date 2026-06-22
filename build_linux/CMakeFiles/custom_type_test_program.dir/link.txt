@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/custom_type_test_program.dir/tests/custom_type_test.c.o -o custom_type_test_program  liblinear_framework.a 

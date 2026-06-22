@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/string_test_program.dir/tests/string_test.c.o -o string_test_program  liblinear_framework.a 

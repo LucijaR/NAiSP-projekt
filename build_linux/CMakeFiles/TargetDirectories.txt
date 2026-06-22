@@ -1,0 +1,8 @@
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/linear_framework.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/test_program.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/int_test_program.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/string_test_program.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/custom_type_test_program.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/test.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles/rebuild_cache.dir
