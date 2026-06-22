@@ -191,6 +191,43 @@ custom_type_test_program/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/custom_type_test_program.dir/build.make CMakeFiles/custom_type_test_program.dir/build
 .PHONY : custom_type_test_program/fast
 
+#=============================================================================
+# Target rules for targets named demo_program
+
+# Build rule for target.
+demo_program: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 demo_program
+.PHONY : demo_program
+
+# fast build rule for target.
+demo_program/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/build
+.PHONY : demo_program/fast
+
+main.o: main.c.o
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/main.c.s
+.PHONY : main.c.s
+
 src/linear_framework.o: src/linear_framework.c.o
 .PHONY : src/linear_framework.o
 
@@ -561,10 +598,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... custom_type_test_program"
+	@echo "... demo_program"
 	@echo "... int_test_program"
 	@echo "... linear_framework"
 	@echo "... string_test_program"
 	@echo "... test_program"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... src/linear_framework.o"
 	@echo "... src/linear_framework.i"
 	@echo "... src/linear_framework.s"

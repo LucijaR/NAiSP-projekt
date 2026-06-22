@@ -68,6 +68,7 @@ all: CMakeFiles/test_program.dir/all
 all: CMakeFiles/int_test_program.dir/all
 all: CMakeFiles/string_test_program.dir/all
 all: CMakeFiles/custom_type_test_program.dir/all
+all: CMakeFiles/demo_program.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +81,7 @@ clean: CMakeFiles/test_program.dir/clean
 clean: CMakeFiles/int_test_program.dir/clean
 clean: CMakeFiles/string_test_program.dir/clean
 clean: CMakeFiles/custom_type_test_program.dir/clean
+clean: CMakeFiles/demo_program.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -89,7 +91,7 @@ clean: CMakeFiles/custom_type_test_program.dir/clean
 CMakeFiles/linear_framework.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/linear_framework.dir/build.make CMakeFiles/linear_framework.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/linear_framework.dir/build.make CMakeFiles/linear_framework.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=5,6,7,8,9,10,11,12,13,14,15,16 "Built target linear_framework"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=7,8,9,10,11,12,13,14,15,16,17,18 "Built target linear_framework"
 .PHONY : CMakeFiles/linear_framework.dir/all
 
 # Build rule for subdir invocation for target.
@@ -115,7 +117,7 @@ CMakeFiles/linear_framework.dir/clean:
 CMakeFiles/test_program.dir/all: CMakeFiles/linear_framework.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_program.dir/build.make CMakeFiles/test_program.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_program.dir/build.make CMakeFiles/test_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=19,20 "Built target test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=21,22 "Built target test_program"
 .PHONY : CMakeFiles/test_program.dir/all
 
 # Build rule for subdir invocation for target.
@@ -141,7 +143,7 @@ CMakeFiles/test_program.dir/clean:
 CMakeFiles/int_test_program.dir/all: CMakeFiles/linear_framework.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/int_test_program.dir/build.make CMakeFiles/int_test_program.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/int_test_program.dir/build.make CMakeFiles/int_test_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=3,4 "Built target int_test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=5,6 "Built target int_test_program"
 .PHONY : CMakeFiles/int_test_program.dir/all
 
 # Build rule for subdir invocation for target.
@@ -167,7 +169,7 @@ CMakeFiles/int_test_program.dir/clean:
 CMakeFiles/string_test_program.dir/all: CMakeFiles/linear_framework.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/string_test_program.dir/build.make CMakeFiles/string_test_program.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/string_test_program.dir/build.make CMakeFiles/string_test_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=17,18 "Built target string_test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=19,20 "Built target string_test_program"
 .PHONY : CMakeFiles/string_test_program.dir/all
 
 # Build rule for subdir invocation for target.
@@ -211,6 +213,32 @@ custom_type_test_program: CMakeFiles/custom_type_test_program.dir/rule
 CMakeFiles/custom_type_test_program.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/custom_type_test_program.dir/build.make CMakeFiles/custom_type_test_program.dir/clean
 .PHONY : CMakeFiles/custom_type_test_program.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/demo_program.dir
+
+# All Build rule for target.
+CMakeFiles/demo_program.dir/all: CMakeFiles/linear_framework.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" --progress-num=3,4 "Built target demo_program"
+.PHONY : CMakeFiles/demo_program.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/demo_program.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/demo_program.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Home/OneDrive/Radna površina/Napredni AiSP/projekt/build_linux/CMakeFiles" 0
+.PHONY : CMakeFiles/demo_program.dir/rule
+
+# Convenience name for target.
+demo_program: CMakeFiles/demo_program.dir/rule
+.PHONY : demo_program
+
+# clean rule for target.
+CMakeFiles/demo_program.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo_program.dir/build.make CMakeFiles/demo_program.dir/clean
+.PHONY : CMakeFiles/demo_program.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
